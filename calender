@@ -1,0 +1,63 @@
+#import tkinter
+from tkinter import *
+
+#import calender
+import calendar
+
+def ShowCal():
+    # new GUI window
+    new_gui=Tk()
+
+    #Background
+    new_gui.config(background="white")
+
+    # "new_gui" title
+    new_gui.title("Calender")
+
+    #size
+    new_gui.geometry("550x600")
+
+    #".get()" returns anything to string
+    fetch_year=int(year_field.get())
+
+    #calender method returns the given years calender
+    cal_content=calender.calender(fetch_year)
+
+    #label for the calender
+    cal_year=Label(new_gui,text=cal_content,font="Consolas 10 bold")
+
+    #".grid(...)" formates it to a tabel format
+    cal_year.grid(row=5,column=1,padx=20)
+
+    #Start GUI
+    new_gui.mainloop()
+
+#Driver code
+if __name__=="__main__":
+    #main gui
+    gui=Tk()
+
+    #background
+    gui.config(background="white")
+
+    #label
+    gui.title("Calender")
+
+    #confirgurtion(size)
+    gui.geometry("250x140")
+
+    #calender label
+    cal=Label(gui,text="CALENDER",bg="dark gray",font=("times",28,"bold"))
+
+    #label for promt a year
+    year=Label(gui,text="Enter Year:",bg="light green")
+
+    #promt year
+    year_field=Entry(gui)
+
+    #button and "ShowCal()" func
+    Show=Button(gui,text="Show calender",fg="Black",bg="Red",command=ShowCal)
+
+    #button and exit func
+    Exit=Button(gui,text="Exit",fg="Black",bg="Red",command=exit)
+gui.mainloop()
